@@ -8,6 +8,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Aplicacion Web con MVC</h1>
+        <h1>Aplicacion Web con MVC basica</h1>
     </body>
 </html>
