@@ -13,18 +13,18 @@
             <p>Escribe tu texto</p>
             <input type="text" name="nombre" /><br />
             <select name="signo">
-                <option>Virgo</option>
-                <option>Sagitario</option>
-                <option>Libra</option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
+                <option value="1">Acuario</option>
+                <option value="2">Piscis</option>
+                <option value="3">Aries</option>
+                <option value="4">Tauro</option>
+                <option value="5">Geminis</option>
+                <option value="6">Cancer</option>
+                <option value="7">Leo</option>
+                <option value="8">Virgo</option>
+                <option value="9">Libra</option>
+                <option value="10">Escorpio</option>
+                <option value="11">Sagitario</option>
+                <option value="12">Capricornio</option>
             </select>
             <input type="submit" value="Apachurrame" />
         </form>
