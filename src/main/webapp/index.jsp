@@ -9,5 +9,24 @@
     </head>
     <body>
         <h1>Aplicacion Web con MVC basica</h1>
+        <form action="horoscopo" method="POST">
+            <p>Escribe tu texto</p>
+            <input type="text" name="nombre" /><br />
+            <select name="signo">
+                <option>Virgo</option>
+                <option>Sagitario</option>
+                <option>Libra</option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+            </select>
+            <input type="submit" value="Apachurrame" />
+        </form>
     </body>
 </html>
