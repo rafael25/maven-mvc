@@ -5,9 +5,17 @@
         <servlet-name>ServletBuscarHorscomp</servlet-name>
         <servlet-class>rv.proyect1.controllers.ServletBuscarHorscomp</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletPagarNomina</servlet-name>
+        <servlet-class>rv.nomina.controllers.ServletPagarNomina</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletBuscarHorscomp</servlet-name>
         <url-pattern>/horoscopo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPagarNomina</servlet-name>
+        <url-pattern>/nomina</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
