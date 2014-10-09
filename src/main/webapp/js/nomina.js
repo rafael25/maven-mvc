@@ -6,5 +6,10 @@
 
 
 $(function (){
-    console.log('hola');
+    $('#boton').click(function(){
+       $.getJSON('nomina')
+        .done(function (data){
+            $('#resultado').text('Nomina: '+data.nomina);
+        }); 
+    });
 });
