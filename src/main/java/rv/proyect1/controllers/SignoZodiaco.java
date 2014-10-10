@@ -12,10 +12,12 @@ package rv.proyect1.controllers;
 public class SignoZodiaco {
     private String nombre;
     private String horoscopo;
+    private String tipo;
 
     public SignoZodiaco() {}
 
-    public SignoZodiaco(String nombre, String horoscopo) {
+    public SignoZodiaco(String tipo, String nombre, String horoscopo) {
+        this.tipo = tipo;
         this.nombre = nombre;
         this.horoscopo = horoscopo;
     }
@@ -35,4 +37,13 @@ public class SignoZodiaco {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
 }

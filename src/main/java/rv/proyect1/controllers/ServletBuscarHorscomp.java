@@ -14,6 +14,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonWriter;
 
 /**
  *
@@ -31,21 +35,35 @@ public class ServletBuscarHorscomp extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        int signo = Integer.parseInt(request.getParameter("signo"));
+        //int signo = Integer.parseInt(request.getParameter("signo"));
         GregorianCalendar fecha = new GregorianCalendar(1988, 10, 15);
         
         ArrayList<SignoZodiaco> signos = new ArrayList();
         
-        ZodiacoInterface griego = new ZodiacoGriego();
-        ZodiacoInterface maya = new ZodiacoMaya();
-        ZodiacoInterface chino = new ZodiacoChino();
+        Pitonisa pitonisas[] = new Pitonisa[3];
+        pitonisas[0] = new Pitonisa(new ZodiacoGriego());
+        pitonisas[1] = new Pitonisa(new ZodiacoMaya());
+        pitonisas[2] = new Pitonisa(new ZodiacoChino());
         
-        signos.add(griego.getZodiaco(fecha));
-        signos.add(maya.getZodiaco(fecha));
-        signos.add(chino.getZodiaco(fecha));
+        for (Pitonisa p : pitonisas) {
+            signos.add(p.getZodiaco(fecha));
+        }
+        
+        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+        JsonObjectBuilder zodiacosBuilder = Json.createObjectBuilder();
+        
+        for (SignoZodiaco z : signos) {
+            zodiacosBuilder.add(z.getTipo(), Json.createObjectBuilder()
+                .add("nombre", z.getNombre())
+                .add("horoscopo", z.getHoroscopo())
+                .build());
+        }
+        
+        JsonObject json = jsonBuilder.add("zodiacos", zodiacosBuilder.build()).build();
+        JsonWriter writer = Json.createWriter(out);
+        writer.writeObject(json);
     }
 }
