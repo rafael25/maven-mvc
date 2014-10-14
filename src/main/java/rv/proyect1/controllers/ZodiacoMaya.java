@@ -7,6 +7,7 @@ package rv.proyect1.controllers;
 
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -34,7 +35,47 @@ public class ZodiacoMaya implements ZodiacoInterface {
     }
 
     public SignoZodiaco getZodiaco(GregorianCalendar fecha) {
-        return signos.get(1);
+        int year = fecha.get(Calendar.YEAR);
+        if (fecha.after(new GregorianCalendar(year-1, Calendar.DECEMBER, 13)) && fecha.before(new GregorianCalendar(year, Calendar.JANUARY, 9))) {
+            return signos.get(4);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.JANUARY, 10)) && fecha.before(new GregorianCalendar(year, Calendar.FEBRUARY, 6))) {
+            return signos.get(6);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.FEBRUARY, 7)) && fecha.before(new GregorianCalendar(year, Calendar.MARCH, 6))) {
+            return signos.get(2);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.MARCH, 7)) && fecha.before(new GregorianCalendar(year, Calendar.APRIL, 3))) {
+            return signos.get(3);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.APRIL, 4)) && fecha.before(new GregorianCalendar(year, Calendar.MAY, 1))) {
+            return signos.get(12);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.MAY, 2)) && fecha.before(new GregorianCalendar(year, Calendar.MAY, 29))) {
+            return signos.get(9);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.MAY, 30)) && fecha.before(new GregorianCalendar(year, Calendar.JUNE, 26))) {
+            return signos.get(0);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.JUNE, 27)) && fecha.before(new GregorianCalendar(year, Calendar.JULY, 25))) {
+            return signos.get(10);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.JULY, 26)) && fecha.before(new GregorianCalendar(year, Calendar.AUGUST, 22))) {
+            return signos.get(7);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.AUGUST, 23)) && fecha.before(new GregorianCalendar(year, Calendar.SEPTEMBER, 19))) {
+            return signos.get(1);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.SEPTEMBER, 20)) && fecha.before(new GregorianCalendar(year, Calendar.OCTOBER, 17))) {
+            return signos.get(11);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.OCTOBER, 18)) && fecha.before(new GregorianCalendar(year, Calendar.NOVEMBER, 14))) {
+            return signos.get(5);
+        }
+        else if (fecha.after(new GregorianCalendar(year, Calendar.NOVEMBER, 15)) && fecha.before(new GregorianCalendar(year, Calendar.DECEMBER, 12))) {
+            return signos.get(8);
+        }
+        return signos.get(0);
     }
     
 }

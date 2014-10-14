@@ -39,8 +39,18 @@ public class ServletBuscarHorscomp extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //int signo = Integer.parseInt(request.getParameter("signo"));
-        GregorianCalendar fecha = new GregorianCalendar(1988, Calendar.OCTOBER, 15);
+        int year = 1900;
+        int mes = 0;
+        int dia = 1;
+        try {
+            year = Integer.parseInt(request.getParameter("year"));
+            mes = Integer.parseInt(request.getParameter("mes"));
+            dia = Integer.parseInt(request.getParameter("dia"));
+        } catch (NumberFormatException e) {
+        } catch (Exception e) {
+        }
+        
+        GregorianCalendar fecha = new GregorianCalendar(year, mes-1, dia);
         
         ArrayList<SignoZodiaco> signos = new ArrayList();
         
