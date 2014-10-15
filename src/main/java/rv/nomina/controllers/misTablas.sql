@@ -1,0 +1,5 @@
+CREATE TABLE TRABAJADOR(ID_TRABAJADOR INTEGER PRIMARY KEY AUTO_INCREMENT, 
+                        NOMBRE VARCHAR(120),
+                        PATERN VARCHAR(120),
+                        MATERN VARCHAR(120)
+);
