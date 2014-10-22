@@ -1,37 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package rv.nomina.controllers;
 
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
- * @author T
+ * @author rafael25
  */
-public class Trabajador {
-    private int id;
+@Entity
+@Table(name = "trabajador")
+
+public class Trabajador implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "ID_TRABAJADOR")
+    private Integer idTrabajador;
+    
+    @Column(name = "NOMBRE")
     private String nombre;
-    private int horasLaboradas;
-    private float sueldoBase;
+    
+    @Column(name = "PATERN")
+    private String patern;
+    
+    @Column(name = "MATERN")
+    private String matern;
 
     public Trabajador() {
     }
 
-    public Trabajador(int id, String nombre, int horasLaboradas, float sueldoBase) {
-        this.id = id;
+    public Trabajador(Integer idTrabajador) {
+        this.idTrabajador = idTrabajador;
+    }
+
+    public Trabajador(String nombre, String patern, String matern) {
         this.nombre = nombre;
-        this.horasLaboradas = horasLaboradas;
-        this.sueldoBase = sueldoBase;
+        this.patern = patern;
+        this.matern = matern;
     }
 
-    public int getId() {
-        return id;
+    public Integer getIdTrabajador() {
+        return idTrabajador;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdTrabajador(Integer idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
 
     public String getNombre() {
@@ -42,19 +64,45 @@ public class Trabajador {
         this.nombre = nombre;
     }
 
-    public int getHorasLaboradas() {
-        return horasLaboradas;
+    public String getPatern() {
+        return patern;
     }
 
-    public void setHorasLaboradas(int horasLaboradas) {
-        this.horasLaboradas = horasLaboradas;
+    public void setPatern(String patern) {
+        this.patern = patern;
     }
 
-    public float getSueldoBase() {
-        return sueldoBase;
+    public String getMatern() {
+        return matern;
     }
 
-    public void setSueldoBase(float sueldoBase) {
-        this.sueldoBase = sueldoBase;
+    public void setMatern(String matern) {
+        this.matern = matern;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (idTrabajador != null ? idTrabajador.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Trabajador)) {
+            return false;
+        }
+        Trabajador other = (Trabajador) object;
+        if ((this.idTrabajador == null && other.idTrabajador != null) || (this.idTrabajador != null && !this.idTrabajador.equals(other.idTrabajador))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "rv.nomina.controllers.Trabajador[ idTrabajador=" + idTrabajador + " ]";
+    }
+    
 }

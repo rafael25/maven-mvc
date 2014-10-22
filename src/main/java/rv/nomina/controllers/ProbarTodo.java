@@ -6,13 +6,29 @@
 
 package rv.nomina.controllers;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 /**
  *
  * @author T
  */
 public class ProbarTodo {
     public static void main(String args[]) {
-        Nomina n = new Nomina(new Trabajador(1, "Rafael", 40, 200));
-        n.pagarNomina();
+        // Paso 1: Abrir SessionFactory
+        SessionFactory factory = HibernateUtilidades.getSessionFactory();
+        Session mySession = factory.openSession();
+        
+        // Paso 2: Empezar una transaccion
+        Transaction trans = mySession.beginTransaction();
+        Trabajador t = new Trabajador("Rafael", "Viveros", "Badillo");
+        mySession.save(t);
+        
+        // Paso 3: Liberamos la transaccion
+        trans.commit();
+        
+        // Pas 4: Liberarmos la session
+        mySession.close();
     }
 }
