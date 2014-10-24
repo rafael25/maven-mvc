@@ -20,7 +20,7 @@ public class Nomina {
     }
     
     public float pagarNomina(){
-        float pago = t.getHorasLaboradas() * t.getSueldoBase();
+        float pago = 0;
         return pago;
     }
 }
