@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="js/libs/foundation/css/normalize.css">
     <link rel="stylesheet" href="js/libs/foundation/css/foundation.min.css" />
     <link rel="stylesheet" href="style.css" />
@@ -14,7 +15,7 @@
     <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
-            <li class="name"><h1><a href="/maven-mvc">Elementos POO</a></h1></li>
+            <li class="name"><h1><a href="/">Elementos POO</a></h1></li>
                 <li class="toggle-topbar menu-icon"><a href="#"><span>Menú</span></a></li>
             </ul>
             <section class="top-bar-section">
@@ -44,7 +45,7 @@
                     <option value="11">Sagitario</option>
                     <option value="12">Capricornio</option>
                 </select>
-                <input type="submit" value="Apachurrame" />
+                <input class="button" type="submit" value="Apachurrame" />
             </form>
         </div>
     </div>
