@@ -42,6 +42,13 @@ public class Trabajador implements Serializable {
         this.idTrabajador = idTrabajador;
     }
 
+    public Trabajador(Integer idTrabajador, String nombre, String patern, String matern) {
+        this.idTrabajador = idTrabajador;
+        this.nombre = nombre;
+        this.patern = patern;
+        this.matern = matern;
+    }
+
     public Trabajador(String nombre, String patern, String matern) {
         this.nombre = nombre;
         this.patern = patern;
@@ -102,7 +109,6 @@ public class Trabajador implements Serializable {
 
     @Override
     public String toString() {
-        return "rv.nomina.controllers.Trabajador[ idTrabajador=" + idTrabajador + " ]";
+        return "Trabajador{" + "id=" + idTrabajador + ", Nombre=" + nombre + ", Paterno=" + patern + ", Materno=" + matern + '}';
     }
-    
 }

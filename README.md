@@ -11,3 +11,15 @@ Requisitos
 + Modelo de la capa logica
 
   Entrega: Domingo 12 Octubre
+
+
+Tarea
+--------------
+
+Servlets:
+
++ Insertar
++ Buscar Todos
++ Buscar por id
++ Borrar
++ Actualizar

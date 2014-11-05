@@ -6,6 +6,7 @@
 
 package rv.nomina.controllers;
 
+import java.util.ArrayList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,8 +23,17 @@ public class ProbarTodo {
         
         // Paso 2: Empezar una transaccion
         Transaction trans = mySession.beginTransaction();
-        Trabajador t = new Trabajador("Rafael", "Viveros", "Badillo");
-        mySession.save(t);
+        Trabajador t1 = new Trabajador("Rafael", "Viveros", "Badillo");
+        mySession.save(t1);
+        
+        Trabajador t2 = new Trabajador(2, "Estefania", "Ortiz", "Navarrete");
+        mySession.update(t2);
+        
+        ArrayList<Trabajador> todos = (ArrayList<Trabajador>) mySession.createCriteria(Trabajador.class).list();
+        
+        for (Trabajador t : todos) {
+            System.out.println(t);
+        }
         
         // Paso 3: Liberamos la transaccion
         trans.commit();
