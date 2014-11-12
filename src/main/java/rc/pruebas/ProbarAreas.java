@@ -10,12 +10,12 @@ package rc.pruebas;
  * @author T107
  */
 public class ProbarAreas {
-    static ServicioSuperficie s;
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        ServicioSuperficie s = new ServicioSuperficie();
         System.out.println(s.servicioArea());
     }
 }
