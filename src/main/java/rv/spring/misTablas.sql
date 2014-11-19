@@ -11,5 +11,5 @@ CREATE TABLE direcciones (
     colonia         VARCHAR(120),
     estado          VARCHAR(50),
     id_usuario      INTEGER,
-    CONSTRAINT fk_direccion_usuario FOREIGN KEY id_usuario REFERENCES usuarios(id_usuario)
+    CONSTRAINT FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
 );

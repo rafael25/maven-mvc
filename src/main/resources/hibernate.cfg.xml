@@ -7,5 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <mapping class="rv.nomina.controllers.Trabajador" />
+    <mapping class="rv.spring.model.Direcciones" />
+    <mapping class="rv.spring.model.Usuarios" />
   </session-factory>
 </hibernate-configuration>
