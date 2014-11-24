@@ -16,6 +16,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -40,6 +41,7 @@ public class Usuarios implements Serializable {
     @Column(name = "sueldo")
     private Float sueldo;
     @OneToOne(mappedBy = "idUsuario")
+    @JsonIgnore
     private Direcciones direccion;
 
     public Usuarios() {
