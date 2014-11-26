@@ -7,6 +7,8 @@ package rv.spring.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,7 +20,8 @@ import rv.nomina.controllers.HibernateUtilidades;
  *
  * @author T107
  */
-public class DAOUsuariosImpl {
+public class DAOUsuariosImpl extends DAO {
+    @Override
     public String buscar() throws IOException {
         SessionFactory factory = HibernateUtilidades.getSessionFactory();
         Session session = factory.openSession();
@@ -27,10 +30,12 @@ public class DAOUsuariosImpl {
         Criteria cricri = session.createCriteria(Usuarios.class);
         ArrayList<Usuarios> usuarios = (ArrayList<Usuarios>) cricri.list();
         
+        Map<String, ArrayList<Usuarios>> singletonMap = Collections.singletonMap("usuarios", usuarios);
+        
         trans.commit();
         session.close();
         
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(usuarios);
+        return mapper.writeValueAsString(singletonMap);
     }
 }
